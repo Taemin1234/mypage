@@ -18,7 +18,7 @@ interface PlaygroundCardProps {
 export function PlaygroundCard({ experiment, onClick }: PlaygroundCardProps) {
   return (
     <div 
-      className="group bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-slate-200 hover:border-slate-300 cursor-pointer"
+      className="relative group bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-slate-200 hover:border-slate-300 cursor-pointer"
       onClick={onClick}
     >
       {/* Experiment Image */}
@@ -98,7 +98,7 @@ export function PlaygroundCard({ experiment, onClick }: PlaygroundCardProps) {
       </div>
       
       {/* Accent border bottom */}
-      <div className="h-0.5 sm:h-1 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+      <div className="absolute bottom-0 left-0 w-full h-0.5 sm:h-1 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
     </div>
   );
 }

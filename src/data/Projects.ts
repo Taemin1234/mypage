@@ -5,7 +5,7 @@ export const projects = [
       description: '에디터들이 직접 글을 발행하고 독자가 카테고리별로 탐색할 수 있는 온라인 매거진 플랫폼',
       tags: ['React 19', 'Next.js 15', 'Tailwind CSS', 'AWS Elastic Beanstalk', 'node.js + Express', 'MongoDB + Mongoose'],
       links: {
-        detail: '#',
+        detail: 'https://decisive-steam-5f0.notion.site/2b716d0d863f812eafb2fa457f71b9f3?source=copy_link',
         github: 'https://github.com',
         live: 'https://example.com'
       },
@@ -66,7 +66,7 @@ export const projects = [
       ],
     
       links: {
-        detail: '#',
+        detail: 'https://decisive-steam-5f0.notion.site/2c516d0d863f8005920fd8343c16d897?source=copy_link',
         github: 'https://github.com/Taemin1234/travel-hk',
         live: 'https://travel-hk.vercel.app/'
       },
@@ -116,37 +116,59 @@ export const projects = [
     },
     {
       id: 3,
-      name: 'Weather Dashboard',
-      description: '실시간 날씨 정보와 5일 예보를 제공하는 대시보드',
-      tags: ['React', 'TypeScript', 'OpenWeather API', 'Recharts'],
+      name: '영화 이상형 월드컵 (Movie World Cup)',
+      description: 'TMDB API를 활용해 사용자가 설정한 조건의 영화를 탐색하고, 16강 토너먼트를 통해 최종 우승 영화를 선정하는 인터랙티브 웹 애플리케이션',
+      tags: [
+        'React 18',
+        'Redux Toolkit',
+        'TanStack Query (React Query)',
+        'Intersection Observer',
+        'styled-components',
+        'TMDB API',
+        'React Router',
+        'Vercel'
+      ],
       links: {
-        detail: '#',
-        github: 'https://github.com',
-        live: 'https://example.com'
+        detail: 'https://decisive-steam-5f0.notion.site/2ca16d0d863f809eb7b1d6f14e2f626d?source=copy_link',
+        github: 'https://github.com/Taemin1234/moviecup',
+        live: 'https://moviecup.vercel.app/'
       },
       color: 'from-emerald-600 to-emerald-700',
       image: '/images/movie-cup.webp',
-      fullDescription: 'OpenWeather API를 활용한 실시간 날씨 정보 대시보드입니다.\n\n사용자의 위치를 기반으로 현재 날씨와 5일간의 예보를 제공하며, Recharts를 활용하��� 시각적으로 이해하기 쉬운 그래프로 데이터를 표현합니다.',
+      fullDescription: '영화 이상형 월드컵은 TMDB API를 기반으로 사용자가 선택한 조건(장르, 언어, 연도)에 맞는 영화를 탐색하고, ' +
+      '16강 토너먼트 방식의 월드컵을 통해 최종 우승 영화를 선정하는 인터랙티브 웹 애플리케이션입니다.\n\n' +
+      '무한 스크롤을 통해 대량의 영화 데이터를 탐색할 수 있으며, ' +
+      '선택된 16개의 영화는 토너먼트 알고리즘에 따라 8강, 4강, 결승을 거쳐 우승작이 결정됩니다. ' +
+      '우승 영화는 명예의 전당(Hall of Fame)에 기록되어 히스토리로 관리됩니다.\n\n' +
+      '본 프로젝트는 클라이언트 상태(Redux Toolkit)와 서버 상태(TanStack Query)를 명확히 분리해 설계했으며, ' +
+      'Intersection Observer와 React Query를 결합한 무한 스크롤 구현을 통해 성능과 사용자 경험을 동시에 고려했습니다.',
       period: '2024.07 ~ 2024.09',
       team: '개인 프로젝트',
       features: [
-        '현재 위치 기반 실시간 날씨 정보',
-        '5일간의 시간별 날씨 예보',
-        '온도, 습도, 풍속 등 상세 정보 제공',
-        '도시 검색 및 즐겨찾기 기능',
-        'Recharts를 활용한 데이터 시각화',
-        '다크모드 지원'
+        '장르·언어·연도 조건을 조합한 영화 필터링 시스템',
+        'TanStack Query의 useInfiniteQuery를 활용한 무한 스크롤 영화 목록',
+        'Intersection Observer 기반 자동 페이지네이션',
+        '16강 토너먼트 방식의 영화 이상형 월드컵 시스템',
+        '라운드별 진행 상황 시각화 및 실시간 선택 반영',
+        '우승 시 Confetti 애니메이션 효과 제공',
+        '역대 우승 영화를 기록하는 명예의 전당(Hall of Fame)',
+        'Redux Toolkit을 통한 필터·월드컵·우승자 전역 상태 관리'
       ],
       challenges: [
-        'Geolocation API를 활용한 위치 기반 서비스 구현',
-        'API 호출 최적화 및 캐싱 전략 수립',
-        'Recharts 커스터마이징으로 직관적인 데이터 시각화',
-        'TypeScript로 타입 안정성 확보'
+        '서버 상태(영화 데이터)와 클라이언트 상태(필터·월드컵 진행)를 분리한 상태 관리 구조 설계',
+        'React Query의 캐싱·리패칭 전략과 필터 조건 변경 간의 연동',
+        'Intersection Observer와 fetchNextPage를 결합한 무한 스크롤 안정화',
+        '16강 → 결승까지 자연스럽게 이어지는 토너먼트 알고리즘 구현',
+        '월드컵 진행 상태와 UI 렌더링 흐름 간의 동기화',
+        'styled-components 환경에서 재사용 가능한 UI 컴포넌트 설계'
       ],
       outcomes: [
-        'API 호출 횟수 60% 절감 (캐싱 전략 적용)',
-        '모바일 사용자 비율 70% 이상',
-        'GitHub Stars 150개 이상'
+        'TanStack Query를 활용한 서버 상태 관리 및 캐싱 전략 이해',
+        'Redux Toolkit 기반 복잡한 전역 상태 구조 설계 경험',
+        'Intersection Observer를 활용한 고성능 무한 스크롤 구현 경험',
+        '토너먼트 알고리즘 설계 및 단계적 상태 전이 로직 구현',
+        '외부 REST API(TMDB)를 활용한 실전 데이터 기반 프로젝트 경험',
+        '인터랙티브 콘텐츠 중심 프로젝트를 포트폴리오로 활용 가능'
       ]
     },
     {
@@ -167,8 +189,8 @@ export const projects = [
       ],
     
       links: {
-        detail: '#',
-        github: 'https://github.com',
+        detail: 'https://decisive-steam-5f0.notion.site/2cc16d0d863f8054ba06c6ded3d7c74f?source=copy_link',
+        github: 'https://github.com/Taemin1234/find-movie-character',
         live: 'https://find-movie-character.vercel.app'
       },
     

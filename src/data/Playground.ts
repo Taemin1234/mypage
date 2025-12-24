@@ -2,72 +2,55 @@ export const experiments = [
     {
       id: 1,
       name: '3D Card Hover Effect',
-      description: 'CSS와 JavaScript를 활용한 3D 인터랙티브 카드 효과',
-      tags: ['React', 'CSS', 'Animation'],
+      description: 'TypeScript와 JavaScript 연습을 위한 숫자 야구 게임',
+      tags: ['Typescript'],
       links: {
-        github: 'https://github.com',
-        live: 'https://example.com'
+        github: 'https://github.com/Taemin1234/Bulls-and-Cows',
+        live: 'https://taemin1234.github.io/Bulls-and-Cows/'
       },
-      image: 'https://images.unsplash.com/photo-1670090130759-2562be5929f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHwzZCUyMGNhcmQlMjBkZXNpZ258ZW58MXx8fHwxNzY1ODYxODc0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      fullDescription: 'CSS transform과 JavaScript를 활용하여 마우스 움직임에 반응하는 3D 카드 효과를 구현했습니다.\n\n카드에 마우스를 올리면 마우스 위치에 따라 카드가 3D로 회전하며, 빛의 반사 효과까지 적용하여 현실감 있는 인터랙션을 제공합니다.',
+      image: '/images/bulls_and_cows.png',
+      fullDescription: '숫자 야구 게임(Bulls and Cows)입니다.TypeScript와 JavaScript의 동작 방식을 이해하기 위해 제작했으며 DOM 조작, 배열 기반 로직을 직접 구현하며 타입 안정성과 런타임 동작의 차이를 경험하는 것을 목표로 했습니다.',
       learnings: [
-        'CSS transform-style: preserve-3d를 활용한 3D 공간 구현',
-        'requestAnimationFrame을 활용한 부드러운 애니메이션',
-        'React useRef와 useEffect를 활용한 DOM 조작',
-        'CSS 변수를 활용한 동적 스타일링'
+        'TypeScript 타입 정의를 통해 DOM 요소, 이벤트, 상태 값을 명확히 관리',
+        '배열 비교 로직을 직접 구현하여 strike / ball / out 판정 처리',
+        '이벤트 기반 UI 흐름(입력 → 검증 → 결과 기록 → 초기화) 구조화',
+        'JS 런타임 동작과 TS 타입 체크의 역할 차이를 체감하는 연습 프로젝트'
       ],
-      nextSteps: [
-        'React Spring 라이브러리를 활용한 물리 기반 애니메이션 적용',
-        '터치 디바이스에서도 동작하도록 개선',
-        '카드 뒤집기 효과 추가'
-      ]
     },
     {
       id: 2,
-      name: 'Particle Animation',
-      description: 'Canvas API로 구현한 파티클 애니메이션 시스템',
-      tags: ['Canvas', 'TypeScript', 'Animation'],
+      name: 'Up & Down 게임',
+      description: 'Typescript와 React연습을 위한 숫자 맞추기 게임',
+      tags: ['React', 'TypeScript'],
       links: {
-        github: 'https://github.com',
+        github: 'https://github.com/Taemin1234/UpDown',
         live: 'https://example.com'
       },
-      image: 'https://images.unsplash.com/photo-1643315283442-f63a93493125?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXJ0aWNsZSUyMGFuaW1hdGlvbnxlbnwxfHx8fDE3NjU4NjE4NzR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      fullDescription: 'HTML5 Canvas API를 활용하여 마우스 움직임에 반응하는 파티클 애니메이션을 구현했습니다.\n\n수천 개의 파티클이 마우스 주변으로 모이고 흩어지는 효과를 60fps로 부드럽게 렌더링하며, 성능 최적화에 집중했습니다.',
+      image: '/images/updown.png',
+      fullDescription: '사용자의 입력에 따라 힌트를 제공하여 정답을 찾아가는 숫자 맞추기 게임입니다. Typescript와 React의 동작 방식 이해를 위해 만들었으며 게임의 흐름(입력-검증-기록)을 React의 상태 관리 로직으로 구현했습니다.',
       learnings: [
-        'Canvas API의 효율적인 렌더링 방법',
-        'RequestAnimationFrame을 활용한 애니메이션 루프',
-        '파티클 시스템의 물리 엔진 구현',
-        'Web Worker를 활용한 계산 성능 향상',
-        'TypeScript로 타입 안정성 확보'
+        '각각 독립된 컴포넌트로 분리하여 유지보수성과 재사용성 확보',
+        '게임이력을 저장하고 애니메이션 효과 적용',
+        '결과값을 저장해 순위 시스템 적용',
       ],
-      nextSteps: [
-        'WebGL로 마이그레이션하여 성능 향상',
-        '다양한 파티클 모양과 색상 추가',
-        '사용자 설정 가능한 옵션 패널 구현'
-      ]
     },
     {
       id: 3,
-      name: 'Custom Hooks Library',
-      description: '재사용 가능한 React 커스텀 훅 모음',
+      name: 'Windows98 컨셉 포트폴리오',
+      description: 'Windows98의 컨셉을 가진 초기 포트폴리오',
       tags: ['React', 'TypeScript', 'Hooks'],
       links: {
-        detail: '#',
-        github: 'https://github.com'
+        github: 'https://github.com/Taemin1234/windows98',
+        live: 'https://taemin1234.github.io/windows98/',
       },
-      image: 'https://images.unsplash.com/photo-1564931768730-7e4d8e240044?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RlJTIwbGlicmFyeSUyMGRldmVsb3BtZW50fGVufDF8fHx8MTc2NTg2MTg3NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      fullDescription: '실무에서 자주 사용하는 로직을 커스텀 훅으로 추상화한 라이브러리입니다.\n\nuseDebounce, useIntersectionObserver, useLocalStorage 등 20개 이상의 유용한 훅을 제공하며, TypeScript로 완벽한 타입 지원을 제공합니다.',
+      image: '/images/windows98.png',
+      fullDescription: '최초로 만든 포트폴리오 사이트로 windows98을 모티프로 만들었습니다. windows 98의 ui를 참고해 폴더, 작업표시줄, 시작버튼, 아이콘 등을 구현했습니다. 실제 동작도 추가해 재미를 더했습니다',
       learnings: [
-        'React Hooks의 동작 원리와 규칙',
-        'TypeScript Generic을 활용한 유연한 타입 정의',
-        '커스텀 훅의 재사용성과 추상화 레벨 설계',
-        'Jest와 React Testing Library를 활용한 테스트 작성',
-        'Storybook을 활용한 문서화'
+        'jQuery ui를 통해 폴더와 창 이동을 구현.',
+        'windows98의 ui를 구현하여 추억과 재미있는 경험 선사',
+        'reload와 close 함수를 통해 재시작과 종료 버튼 구현',
+        '윈도우 로딩창 구현',
+        '메인화면에서 타이핑되는 효과 적용'
       ],
-      nextSteps: [
-        'NPM 패키지로 배포',
-        '더 많은 훅 추가 (useForm, useInfiniteScroll 등)',
-        '사용 예제와 문서 보강'
-      ]
     }
   ];

@@ -1,4 +1,4 @@
-import { X, ExternalLink, Github, Calendar, Users, Target } from 'lucide-react';
+import { X, ExternalLink, Github, Calendar, Users, Target, ScrollText } from 'lucide-react';
 import { useEffect } from 'react';
 
 interface ProjectDetailModalProps {
@@ -179,6 +179,18 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
               >
                 <Github className="w-4 sm:w-5 h-4 sm:h-5" />
                 <span>GitHub에서 보기</span>
+              </a>
+            )}
+
+            {project.links.detail && (
+              <a
+                href={project.links.detail}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-[#37352f] text-white rounded-lg hover:bg-[#47443e] transition-colors text-sm sm:text-base"
+              >
+                <ScrollText className="w-4 sm:w-5 h-4 sm:h-5" />
+                <span>Notion 보기</span>
               </a>
             )}
             

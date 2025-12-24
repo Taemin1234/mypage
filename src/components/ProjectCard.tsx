@@ -1,4 +1,4 @@
-import { ExternalLink, Github, FileText } from 'lucide-react';
+import { ExternalLink, Github, FileText, ScrollText } from 'lucide-react';
 
 interface ProjectCardProps {
   project: {
@@ -83,6 +83,20 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
             >
               <Github className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
               <span>GitHub</span>
+            </a>
+          )}
+
+          
+          {project.links.detail && (
+            <a
+              href={project.links.detail}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 hover:scale-105 transition-all duration-200 text-xs sm:text-sm"
+            >
+              <ScrollText className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
+              <span>노션페이지</span>
             </a>
           )}
           
