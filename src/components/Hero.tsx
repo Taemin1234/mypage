@@ -1,4 +1,4 @@
-import { Sparkles, Code2, Rocket } from 'lucide-react';
+import { Sparkles, SquareFunction, Palette } from 'lucide-react';
 
 export function Hero() {
   return (
@@ -15,12 +15,12 @@ export function Hero() {
         
         <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed max-w-3xl">
           <span className="flex sm:inline-flex items-center gap-2 mb-2 sm:mb-0 sm:mr-2">
-            <Code2 className="w-4 sm:w-5 h-4 sm:h-5 text-slate-500 flex-shrink-0" />
-            <strong className="text-slate-700">사용자 경험</strong>을 최우선으로 생각하며
+            <SquareFunction className="w-4 sm:w-5 h-4 sm:h-5 text-slate-500 flex-shrink-0" />
+            <span><strong className="text-slate-700">기능</strong>에 깊이를 더하고,</span>
           </span>
           <span className="flex sm:inline-flex items-center gap-2">
-            <Rocket className="w-4 sm:w-5 h-4 sm:h-5 text-slate-500 flex-shrink-0" />
-            <strong className="text-slate-700">React, TypeScript, Next.js</strong>로 웹 애플리케이션을 만듭니다
+            <Palette className="w-4 sm:w-5 h-4 sm:h-5 text-slate-500 flex-shrink-0" />
+            <span><strong className="text-slate-700">디자인</strong>에 생명력을 불어넣습니다.</span>
           </span>
         </p>
       </div>
