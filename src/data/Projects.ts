@@ -7,7 +7,7 @@ export const projects = [
       links: {
         detail: 'https://decisive-steam-5f0.notion.site/2b716d0d863f812eafb2fa457f71b9f3?source=copy_link',
         github: 'https://github.com',
-        live: 'https://example.com'
+        live: 'https://taest-mag-front.vercel.app/'
       },
       color: 'from-slate-600 to-slate-700',
       image: '/images/taest-mag.webp',
