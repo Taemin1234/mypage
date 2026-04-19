@@ -1,6 +1,7 @@
 import { Hero } from './components/Hero';
 import { Skills } from './components/Skills'
 import { Projects } from './components/Projects';
+import { CompanyProjects } from './components/CompanyProjects';
 import { Playground } from './components/Playground';
 import { FloatingActions } from './components/FloatingActions';
 
@@ -11,6 +12,7 @@ export default function App() {
         <Hero />
         <Skills />
         <Projects />
+        <CompanyProjects />
         <Playground />
       </div>
       <FloatingActions />

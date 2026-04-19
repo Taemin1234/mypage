@@ -1,20 +1,21 @@
 export const experiments = [
   {
     id: 1,
-    name: '3D Card Hover Effect',
-    description: 'TypeScript와 JavaScript 연습을 위한 숫자 야구 게임',
-    tags: ['Typescript'],
+    name: 'Windows98 컨셉 포트폴리오',
+    description: 'Windows98의 컨셉을 가진 초기 포트폴리오',
+    tags: ['React', 'TypeScript', 'Hooks'],
     links: {
-      github: 'https://github.com/Taemin1234/Bulls-and-Cows',
-      live: 'https://taemin1234.github.io/Bulls-and-Cows/'
+      github: 'https://github.com/Taemin1234/windows98',
+      live: 'https://taemin1234.github.io/windows98/',
     },
-    image: '/images/bulls_and_cows.png',
-    fullDescription: '숫자 야구 게임(Bulls and Cows)입니다.TypeScript와 JavaScript의 동작 방식을 이해하기 위해 제작했으며 DOM 조작, 배열 기반 로직을 직접 구현하며 타입 안정성과 런타임 동작의 차이를 경험하는 것을 목표로 했습니다.',
+    image: '/images/windows98.png',
+    fullDescription: '최초로 만든 포트폴리오 사이트로 windows98을 모티프로 만들었습니다. windows 98의 ui를 참고해 폴더, 작업표시줄, 시작버튼, 아이콘 등을 구현했습니다. 실제 동작도 추가해 재미를 더했습니다',
     learnings: [
-      'TypeScript 타입 정의를 통해 DOM 요소, 이벤트, 상태 값을 명확히 관리',
-      '배열 비교 로직을 직접 구현하여 strike / ball / out 판정 처리',
-      '이벤트 기반 UI 흐름(입력 → 검증 → 결과 기록 → 초기화) 구조화',
-      'JS 런타임 동작과 TS 타입 체크의 역할 차이를 체감하는 연습 프로젝트'
+      'jQuery ui를 통해 폴더와 창 이동을 구현.',
+      'windows98의 ui를 구현하여 추억과 재미있는 경험 선사',
+      'reload와 close 함수를 통해 재시작과 종료 버튼 구현',
+      '윈도우 로딩창 구현',
+      '메인화면에서 타이핑되는 효과 적용'
     ],
   },
   {
@@ -36,21 +37,20 @@ export const experiments = [
   },
   {
     id: 3,
-    name: 'Windows98 컨셉 포트폴리오',
-    description: 'Windows98의 컨셉을 가진 초기 포트폴리오',
-    tags: ['React', 'TypeScript', 'Hooks'],
+    name: '숫자야구 게임',
+    description: 'TypeScript와 JavaScript 연습을 위한 숫자 야구 게임',
+    tags: ['Typescript'],
     links: {
-      github: 'https://github.com/Taemin1234/windows98',
-      live: 'https://taemin1234.github.io/windows98/',
+      github: 'https://github.com/Taemin1234/Bulls-and-Cows',
+      live: 'https://taemin1234.github.io/Bulls-and-Cows/'
     },
-    image: '/images/windows98.png',
-    fullDescription: '최초로 만든 포트폴리오 사이트로 windows98을 모티프로 만들었습니다. windows 98의 ui를 참고해 폴더, 작업표시줄, 시작버튼, 아이콘 등을 구현했습니다. 실제 동작도 추가해 재미를 더했습니다',
+    image: '/images/bulls_and_cows.png',
+    fullDescription: '숫자 야구 게임(Bulls and Cows)입니다.TypeScript와 JavaScript의 동작 방식을 이해하기 위해 제작했으며 DOM 조작, 배열 기반 로직을 직접 구현하며 타입 안정성과 런타임 동작의 차이를 경험하는 것을 목표로 했습니다.',
     learnings: [
-      'jQuery ui를 통해 폴더와 창 이동을 구현.',
-      'windows98의 ui를 구현하여 추억과 재미있는 경험 선사',
-      'reload와 close 함수를 통해 재시작과 종료 버튼 구현',
-      '윈도우 로딩창 구현',
-      '메인화면에서 타이핑되는 효과 적용'
+      'TypeScript 타입 정의를 통해 DOM 요소, 이벤트, 상태 값을 명확히 관리',
+      '배열 비교 로직을 직접 구현하여 strike / ball / out 판정 처리',
+      '이벤트 기반 UI 흐름(입력 → 검증 → 결과 기록 → 초기화) 구조화',
+      'JS 런타임 동작과 TS 타입 체크의 역할 차이를 체감하는 연습 프로젝트'
     ],
-  }
+  },
 ];

@@ -18,11 +18,11 @@ export function Playground() {
           <p className="text-slate-500 text-xs sm:text-sm mt-0.5 sm:mt-1">실험적인 프로젝트와 학습 내용</p>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        {experiments.map((experiment) => (
-          <PlaygroundCard 
-            key={experiment.id} 
+        {experiments.reverse().map((experiment) => (
+          <PlaygroundCard
+            key={experiment.id}
             experiment={experiment}
             onClick={() => setSelectedExperiment(experiment)}
           />

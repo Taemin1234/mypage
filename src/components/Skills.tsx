@@ -21,7 +21,7 @@ const skillCategories: SkillCategory[] = [
       { name: "React", level: 3 },
       { name: "TypeScript", level: 2 },
       { name: "JavaScript", level: 3 },
-      { name: "Tailwind CSS", level: 2 },
+      { name: "Tailwind CSS", level: 3 },
       { name: "Next.js", level: 3 },
       { name: "HTML/CSS", level: 4 },
       { name: "CSS Module", level: 4 },
@@ -32,8 +32,8 @@ const skillCategories: SkillCategory[] = [
     title: "Backend & DB",
     icon: <Database className="w-5 h-5" />,
     skills: [
-      { name: "Node.js + Express", level: 3 },
-      { name: "MongoDB + Mongoose", level: 3 },
+      { name: "Node.js + Express", level: 2 },
+      { name: "MongoDB + Mongoose", level: 2 },
     ],
     color: "bg-emerald-50 text-emerald-600 border-emerald-200",
   },
@@ -87,7 +87,7 @@ export function Skills() {
                 </div>
                 <h3 className="font-semibold text-slate-800">{category.title}</h3>
               </div>
-              
+
               <div className="flex flex-col gap-2">
                 {sortedSkills.map((skill, skillIndex) => (
                   <div
@@ -99,11 +99,10 @@ export function Skills() {
                       {[1, 2, 3, 4].map((level) => (
                         <div
                           key={level}
-                          className={`w-1.5 h-1.5 rounded-full ${
-                            level <= skill.level
-                              ? "bg-slate-400 group-hover:bg-slate-600"
-                              : "bg-slate-200"
-                          } transition-colors`}
+                          className={`w-1.5 h-1.5 rounded-full ${level <= skill.level
+                            ? "bg-slate-400 group-hover:bg-slate-600"
+                            : "bg-slate-200"
+                            } transition-colors`}
                         />
                       ))}
                     </div>
