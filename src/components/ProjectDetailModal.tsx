@@ -33,35 +33,33 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
 
   return (
     <div 
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4"
+      className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-3 sm:p-4"
       onClick={onClose}
     >
       <div 
-        className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-lg shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header with gradient */}
-        <div className={`relative bg-gradient-to-r ${project.color} p-5 sm:p-6 lg:p-8 text-white`}>
+        <div className="relative p-5 sm:p-6 lg:p-8 border-b border-slate-200">
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 sm:p-2 hover:bg-white/20 rounded-lg transition-colors"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 sm:p-2 hover:bg-slate-100 rounded-md transition-colors"
           >
-            <X className="w-5 h-5 sm:w-6 sm:h-6" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600" />
           </button>
           
-          <h2 className="mb-2 sm:mb-3 text-white pr-8 sm:pr-0">{project.name}</h2>
-          <p className="text-white/90 text-sm sm:text-base lg:text-lg">{project.description}</p>
+          <h2 className="mb-2 sm:mb-3 text-slate-950 pr-8 sm:pr-0">{project.name}</h2>
+          <p className="text-slate-600 text-sm sm:text-base lg:text-lg">{project.description}</p>
           
-          {/* Meta info */}
           <div className="flex flex-wrap gap-3 sm:gap-4 mt-4 sm:mt-6">
             {project.period && (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-slate-500">
                 <Calendar className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                 <span className="text-xs sm:text-sm">{project.period}</span>
               </div>
             )}
             {project.team && (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-slate-500">
                 <Users className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                 <span className="text-xs sm:text-sm">{project.team}</span>
               </div>
@@ -77,7 +75,6 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
               alt={project.name}
               className="w-full h-full object-cover"
             />
-            <div className={`absolute inset-0 opacity-30`}></div>
           </div>
         )}
 
@@ -86,14 +83,13 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
           {/* Technologies */}
           <div className="mb-6 sm:mb-8">
             <h3 className="mb-3 sm:mb-4 text-slate-900 flex items-center gap-2">
-              <div className={`w-1 h-5 sm:h-6 bg-gradient-to-b ${project.color} rounded-full`}></div>
               사용 기술
             </h3>
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {project.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className={`px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r ${project.color} text-white rounded-lg shadow-sm text-xs sm:text-sm`}
+                  className="px-3 sm:px-4 py-1.5 sm:py-2 bg-slate-50 text-slate-600 rounded-md border border-slate-200 text-xs sm:text-sm"
                 >
                   {tag}
                 </span>
@@ -105,7 +101,6 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
           {project.fullDescription && (
             <div className="mb-6 sm:mb-8">
               <h3 className="mb-3 sm:mb-4 text-slate-900 flex items-center gap-2">
-                <div className={`w-1 h-5 sm:h-6 bg-gradient-to-b ${project.color} rounded-full`}></div>
                 프로젝트 소개
               </h3>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
@@ -118,13 +113,12 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
           {project.features && project.features.length > 0 && (
             <div className="mb-6 sm:mb-8">
               <h3 className="mb-3 sm:mb-4 text-slate-900 flex items-center gap-2">
-                <div className={`w-1 h-5 sm:h-6 bg-gradient-to-b ${project.color} rounded-full`}></div>
                 주요 기능
               </h3>
               <ul className="space-y-2 sm:space-y-3">
                 {project.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-2 sm:gap-3">
-                    <div className={`mt-1.5 sm:mt-2 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-gradient-to-r ${project.color} flex-shrink-0`}></div>
+                    <div className="mt-1.5 sm:mt-2 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-slate-300 flex-shrink-0"></div>
                     <span className="text-sm sm:text-base text-slate-600">{feature}</span>
                   </li>
                 ))}
@@ -136,13 +130,12 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
           {project.challenges && project.challenges.length > 0 && (
             <div className="mb-6 sm:mb-8">
               <h3 className="mb-3 sm:mb-4 text-slate-900 flex items-center gap-2">
-                <div className={`w-1 h-5 sm:h-6 bg-gradient-to-b ${project.color} rounded-full`}></div>
                 기술적 도전
               </h3>
               <ul className="space-y-2 sm:space-y-3">
                 {project.challenges.map((challenge, index) => (
                   <li key={index} className="flex items-start gap-2 sm:gap-3">
-                    <div className={`mt-1.5 sm:mt-2 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-gradient-to-r ${project.color} flex-shrink-0`}></div>
+                    <div className="mt-1.5 sm:mt-2 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-slate-300 flex-shrink-0"></div>
                     <span className="text-sm sm:text-base text-slate-600">{challenge}</span>
                   </li>
                 ))}
@@ -154,7 +147,6 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
           {project.outcomes && project.outcomes.length > 0 && (
             <div className="mb-6 sm:mb-8">
               <h3 className="mb-3 sm:mb-4 text-slate-900 flex items-center gap-2">
-                <div className={`w-1 h-5 sm:h-6 bg-gradient-to-b ${project.color} rounded-full`}></div>
                 성과
               </h3>
               <ul className="space-y-2 sm:space-y-3">
@@ -175,7 +167,7 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors text-sm sm:text-base"
+                className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-slate-900 text-white rounded-md hover:bg-slate-800 transition-colors text-sm sm:text-base"
               >
                 <Github className="w-4 sm:w-5 h-4 sm:h-5" />
                 <span>GitHub에서 보기</span>
@@ -187,7 +179,7 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
                 href={project.links.detail}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-[#37352f] text-white rounded-lg hover:bg-[#47443e] transition-colors text-sm sm:text-base"
+                className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white text-slate-700 rounded-md border border-slate-200 hover:bg-slate-50 transition-colors text-sm sm:text-base"
               >
                 <ScrollText className="w-4 sm:w-5 h-4 sm:h-5" />
                 <span>Notion 보기</span>
@@ -199,7 +191,7 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
                 href={project.links.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r ${project.color} text-white rounded-lg hover:shadow-lg transition-all text-sm sm:text-base`}
+                className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white text-slate-700 rounded-md border border-slate-200 hover:bg-slate-50 transition-colors text-sm sm:text-base"
               >
                 <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5" />
                 <span>Live 데모 보기</span>

@@ -1,6 +1,5 @@
 import { ProjectCard } from './ProjectCard';
 import { ProjectDetailModal } from './ProjectDetailModal';
-import { Briefcase } from 'lucide-react';
 import { useState } from 'react';
 import { projects } from '../data/Projects'
 
@@ -10,16 +9,11 @@ export function Projects() {
 
   return (
     <section className="mb-16 sm:mb-20 lg:mb-24">
-      <div className="flex items-center gap-3 mb-6 sm:mb-8 lg:mb-10">
-        <div className="p-1.5 sm:p-2 bg-slate-700 rounded-lg shadow-md">
-          <Briefcase className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
-        </div>
-        <div>
-          <h2 className="text-slate-900">Frontend Projects</h2>
-          <p className="text-slate-500 text-xs sm:text-sm mt-0.5 sm:mt-1">
-            프론트엔드 중심으로 구성한 개인 프로젝트 모음
-          </p>
-        </div>
+      <div className="mb-6 sm:mb-8 lg:mb-10 border-b border-slate-200 pb-4">
+        <h2 className="text-slate-950">Frontend Projects</h2>
+        <p className="text-slate-500 text-sm sm:text-base mt-2">
+          직접 기획하고 구현하며 UI 흐름과 상태 관리 방식을 실험한 개인 프로젝트입니다.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">

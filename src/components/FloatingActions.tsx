@@ -31,7 +31,7 @@ export function FloatingActions() {
         href="https://decisive-steam-5f0.notion.site/2b716d0d863f8056b8b2f7d8881f1591"
         target="_blank"
         rel="noopener noreferrer"
-        className="pointer-events-auto flex items-center gap-2 px-4 py-3 bg-slate-800 text-white rounded-full shadow-lg hover:bg-slate-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+        className="pointer-events-auto flex items-center gap-2 px-4 py-3 bg-slate-900 text-white rounded-lg shadow-md hover:bg-slate-800 transition-colors duration-200 group"
         aria-label="이력서 보기"
       >
         <FileText className="w-5 h-5" />
@@ -46,7 +46,7 @@ export function FloatingActions() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 1, y: 20 }}
             onClick={scrollToTop}
-            className="pointer-events-auto p-3 bg-white text-slate-600 rounded-full shadow-lg border border-slate-200 hover:bg-slate-50 hover:text-slate-900 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            className="pointer-events-auto p-3 bg-white text-slate-600 rounded-lg shadow-md border border-slate-200 hover:bg-slate-50 hover:text-slate-900 transition-colors duration-200"
             aria-label="맨 위로 스크롤"
           >
             <ArrowUp className="w-5 h-5" />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Code2, Database, Layout, CheckCheck, Wrench, Cpu } from "lucide-react";
+import { Database, Layout, Wrench, Cpu } from "lucide-react";
 
 interface Skill {
   name: string;
@@ -64,11 +64,11 @@ const skillCategories: SkillCategory[] = [
 export function Skills() {
   return (
     <section className="mb-16 sm:mb-24">
-      <div className="flex items-center gap-2 mb-6 sm:mb-8 px-2">
-        <CheckCheck className="w-6 h-6 text-slate-700" />
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 tracking-tight">
-          Technical Skills
-        </h2>
+      <div className="mb-6 sm:mb-8 border-b border-slate-200 pb-4">
+        <h2 className="text-slate-950">Technical Skills</h2>
+        <p className="text-slate-500 text-sm sm:text-base mt-2">
+          자주 쓰는 기술과 실제 작업에서 다뤄본 도구를 중심으로 정리했습니다.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -79,10 +79,10 @@ export function Skills() {
           return (
             <div
               key={index}
-              className="bg-white rounded-xl p-5 sm:p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow duration-300"
+              className="bg-white rounded-lg p-5 sm:p-6 border border-slate-200"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className={`p-2 rounded-lg ${category.color}`}>
+                <div className={`p-2 rounded-md ${category.color}`}>
                   {category.icon}
                 </div>
                 <h3 className="font-semibold text-slate-800">{category.title}</h3>
@@ -92,7 +92,7 @@ export function Skills() {
                 {sortedSkills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="flex items-center justify-between px-3 py-2 bg-slate-50 text-slate-700 rounded-lg border border-slate-100 hover:border-slate-200 transition-colors group"
+                    className="flex items-center justify-between px-3 py-2 bg-slate-50 text-slate-700 rounded-md border border-slate-100 group"
                   >
                     <span className="text-sm font-medium">{skill.name}</span>
                     <div className="flex gap-0.5" aria-label={`Level ${skill.level} of 4`}>

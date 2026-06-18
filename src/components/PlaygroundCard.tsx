@@ -18,45 +18,39 @@ interface PlaygroundCardProps {
 export function PlaygroundCard({ experiment, onClick }: PlaygroundCardProps) {
   return (
     <div 
-      className="relative group bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-slate-200 hover:border-slate-300 cursor-pointer"
+      className="relative group bg-white rounded-lg overflow-hidden border border-slate-200 hover:border-slate-300 transition-colors duration-200 cursor-pointer"
       onClick={onClick}
     >
-      {/* Experiment Image */}
       {experiment.image && (
-        <div className="relative h-32 sm:h-36 overflow-hidden">
+        <div className="relative h-32 sm:h-36 overflow-hidden bg-slate-100">
           <img 
             src={experiment.image} 
             alt={experiment.name}
-            className="absolute inset-0 w-full h-full object-cover block group-hover:scale-105 transition-transform duration-300"
+            className="absolute inset-0 w-full h-full object-cover block"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-amber-600 to-transparent opacity-20"></div>
         </div>
       )}
 
       <div className="p-4 sm:p-5">
-        {/* Name */}
-        <h4 className="mb-1.5 sm:mb-2 text-slate-900 group-hover:text-slate-700 transition-colors duration-200">
+        <h4 className="mb-1.5 sm:mb-2 text-slate-950 group-hover:text-slate-700 transition-colors duration-200">
           {experiment.name}
         </h4>
-        
-        {/* Description */}
+
         <p className="text-xs sm:text-sm text-slate-600 mb-3 sm:mb-4 leading-relaxed">
           {experiment.description}
         </p>
-        
-        {/* Tags */}
+
         <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
           {experiment.tags.map((tag, index) => (
             <span
               key={index}
-              className="px-2 py-0.5 sm:py-1 bg-amber-50 text-amber-700 rounded-md text-xs border border-amber-200"
+              className="px-2 py-0.5 sm:py-1 bg-slate-50 text-slate-600 rounded-md text-xs border border-slate-200"
             >
               {tag}
             </span>
           ))}
         </div>
-        
-        {/* Links */}
+
         <div className="flex gap-2 sm:gap-3">
           <button
             onClick={(e) => {
@@ -96,9 +90,6 @@ export function PlaygroundCard({ experiment, onClick }: PlaygroundCardProps) {
           )}
         </div>
       </div>
-      
-      {/* Accent border bottom */}
-      <div className="absolute bottom-0 left-0 w-full h-0.5 sm:h-1 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
     </div>
   );
 }
