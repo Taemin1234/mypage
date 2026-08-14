@@ -1,5 +1,9 @@
-import { X, ExternalLink, Github } from 'lucide-react';
-import { useEffect } from 'react';
+import * as Dialog from "@radix-ui/react-dialog";
+import {
+  ArrowSquareOut as ExternalLink,
+  GithubLogo as Github,
+  X,
+} from "@phosphor-icons/react";
 
 interface ExperimentDetailModalProps {
   experiment: {
@@ -19,139 +23,116 @@ interface ExperimentDetailModalProps {
   onClose: () => void;
 }
 
-export function ExperimentDetailModal({ experiment, onClose }: ExperimentDetailModalProps) {
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, []);
+function ExperimentList({ title, items }: { title: string; items?: string[] }) {
+  if (!items?.length) return null;
 
   return (
-    <div 
-      className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-3 sm:p-4"
-      onClick={onClose}
-    >
-      <div 
-        className="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="relative p-5 sm:p-6 lg:p-8 border-b border-slate-200">
-          <button
-            onClick={onClose}
-            className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 sm:p-2 hover:bg-slate-100 rounded-md transition-colors"
-          >
-            <X className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600" />
-          </button>
-          
-          <h2 className="text-slate-950 mb-2 sm:mb-3 pr-8 sm:pr-0">{experiment.name}</h2>
-          <p className="text-slate-600 text-sm sm:text-base lg:text-lg">{experiment.description}</p>
-        </div>
+    <details className="border-t border-token py-5 first:border-t-0" open>
+      <summary className="control-shape cursor-pointer list-none px-1 py-2 text-primary marker:hidden">
+        <h3 className="inline text-lg font-bold tracking-[-0.02em]">{title}</h3>
+        <span className="float-right text-sm font-semibold text-secondary">{items.length}개</span>
+      </summary>
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+        {items.map((item) => (
+          <li key={item} className="control-shape bg-surface-muted p-4 text-sm leading-6 text-secondary">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </details>
+  );
+}
 
-        {/* Experiment Image */}
-        {experiment.image && (
-          <div className="relative h-40 sm:h-48 lg:h-56 overflow-hidden">
-            <img 
-              src={experiment.image} 
-              alt={experiment.name}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        )}
+export function ExperimentDetailModal({ experiment, onClose }: ExperimentDetailModalProps) {
+  return (
+    <Dialog.Root open onOpenChange={(open) => !open && onClose()}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-slate-950/65 backdrop-blur-sm" />
+        <Dialog.Content className="bg-surface content-surface fixed left-1/2 top-1/2 z-50 max-h-[90dvh] w-[calc(100%-1.5rem)] max-w-3xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto focus:outline-none">
+          <header className="relative border-b border-token p-5 pr-14 sm:p-7 sm:pr-16">
+            <Dialog.Close asChild>
+              <button
+                type="button"
+                aria-label="닫기"
+                className="secondary-button control-shape absolute right-4 top-4 grid size-10 place-items-center transition-colors sm:right-6 sm:top-6"
+              >
+                <X className="size-5" aria-hidden="true" />
+              </button>
+            </Dialog.Close>
 
-        {/* Content */}
-        <div className="p-5 sm:p-6 lg:p-8">
-          {/* Technologies */}
-          <div className="mb-6 sm:mb-8">
-            <h3 className="mb-3 sm:mb-4 text-slate-900 flex items-center gap-2">
-              사용 기술
-            </h3>
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-              {experiment.tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="px-3 sm:px-4 py-1.5 sm:py-2 bg-slate-50 text-slate-600 rounded-md border border-slate-200 text-xs sm:text-sm"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Full Description */}
-          {experiment.fullDescription && (
-            <div className="mb-6 sm:mb-8">
-              <h3 className="mb-3 sm:mb-4 text-slate-900 flex items-center gap-2">
-                상세 설명
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed whitespace-pre-line">
-                {experiment.fullDescription}
+            <Dialog.Title asChild>
+              <h2 className="mb-3 text-2xl font-bold leading-tight tracking-[-0.035em] text-primary sm:text-3xl">
+                {experiment.name}
+              </h2>
+            </Dialog.Title>
+            <Dialog.Description asChild>
+              <p className="max-w-[62ch] text-sm leading-6 text-secondary sm:text-base sm:leading-7">
+                {experiment.description}
               </p>
+            </Dialog.Description>
+          </header>
+
+          {experiment.image && (
+            <div className="image-frame border-b border-token p-3 sm:p-5">
+              <img
+                src={experiment.image}
+                alt={experiment.name}
+                className="max-h-[24rem] w-full rounded-[0.75rem] object-cover object-top"
+              />
             </div>
           )}
 
-          {/* Learnings */}
-          {experiment.learnings && experiment.learnings.length > 0 && (
-            <div className="mb-6 sm:mb-8">
-              <h3 className="mb-3 sm:mb-4 text-slate-900 flex items-center gap-2">
-                배운 점
-              </h3>
-              <ul className="space-y-2 sm:space-y-3">
-                {experiment.learnings.map((learning, index) => (
-                  <li key={index} className="flex items-start gap-2 sm:gap-3">
-                    <div className="mt-1.5 sm:mt-2 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-slate-300 flex-shrink-0"></div>
-                    <span className="text-sm sm:text-base text-slate-600">{learning}</span>
-                  </li>
+          <div className="p-5 sm:p-7">
+            <section className="mb-7">
+              <h3 className="mb-4 text-lg font-bold tracking-[-0.02em] text-primary">사용 기술</h3>
+              <div className="flex flex-wrap gap-2">
+                {experiment.tags.map((tag) => (
+                  <span key={tag} className="control-shape bg-surface-muted px-3 py-1.5 text-sm font-medium text-secondary">
+                    {tag}
+                  </span>
                 ))}
-              </ul>
-            </div>
-          )}
+              </div>
+            </section>
 
-          {/* Next Steps */}
-          {experiment.nextSteps && experiment.nextSteps.length > 0 && (
-            <div className="mb-6 sm:mb-8">
-              <h3 className="mb-3 sm:mb-4 text-slate-900 flex items-center gap-2">
-                개선 계획
-              </h3>
-              <ul className="space-y-2 sm:space-y-3">
-                {experiment.nextSteps.map((step, index) => (
-                  <li key={index} className="flex items-start gap-2 sm:gap-3">
-                    <div className="mt-1.5 sm:mt-2 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-slate-300 flex-shrink-0"></div>
-                    <span className="text-sm sm:text-base text-slate-600">{step}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+            {experiment.fullDescription && (
+              <section className="mb-7">
+                <h3 className="mb-4 text-lg font-bold tracking-[-0.02em] text-primary">상세 설명</h3>
+                <p className="detail-copy text-sm sm:text-base">{experiment.fullDescription}</p>
+              </section>
+            )}
 
-          {/* Links */}
-          <div className="flex flex-wrap gap-2 sm:gap-3 pt-4 sm:pt-6 border-t border-slate-200">
-            {experiment.links.github && (
-              <a
-                href={experiment.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-slate-900 text-white rounded-md hover:bg-slate-800 transition-colors text-sm sm:text-base"
-              >
-                <Github className="w-4 sm:w-5 h-4 sm:h-5" />
-                <span>GitHub에서 보기</span>
-              </a>
-            )}
-            
-            {experiment.links.live && (
-              <a
-                href={experiment.links.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white text-slate-700 rounded-md border border-slate-200 hover:bg-slate-50 transition-colors text-sm sm:text-base"
-              >
-                <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5" />
-                <span>Live 데모 보기</span>
-              </a>
-            )}
+            <div className="border-y border-token">
+              <ExperimentList title="배운 점" items={experiment.learnings} />
+              <ExperimentList title="개선 계획" items={experiment.nextSteps} />
+            </div>
+
+            <footer className="mt-7 flex flex-wrap gap-3">
+              {experiment.links.github && (
+                <a
+                  href={experiment.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="accent-button control-shape inline-flex min-h-11 items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-colors"
+                >
+                  <Github className="size-4" aria-hidden="true" />
+                  <span>GitHub에서 보기</span>
+                </a>
+              )}
+              {experiment.links.live && (
+                <a
+                  href={experiment.links.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="secondary-button control-shape inline-flex min-h-11 items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-colors"
+                >
+                  <ExternalLink className="size-4" aria-hidden="true" />
+                  <span>Live 데모 보기</span>
+                </a>
+              )}
+            </footer>
           </div>
-        </div>
-      </div>
-    </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }

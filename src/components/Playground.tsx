@@ -1,24 +1,35 @@
 import { PlaygroundCard } from './PlaygroundCard';
 import { ExperimentDetailModal } from './ExperimentDetailModal';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { experiments } from '../data/Playground'
 
 export function Playground() {
   const [selectedExperiment, setSelectedExperiment] = useState<typeof experiments[0] | null>(null);
+  const lastTriggerRef = useRef<HTMLButtonElement | null>(null);
+
+  const openExperiment = (experiment: typeof experiments[0]) => {
+    lastTriggerRef.current = document.activeElement as HTMLButtonElement | null;
+    setSelectedExperiment(experiment);
+  };
+
+  const closeExperiment = () => {
+    setSelectedExperiment(null);
+    requestAnimationFrame(() => lastTriggerRef.current?.focus());
+  };
 
   return (
-    <section className="mb-8 sm:mb-12 lg:mb-16">
-      <div className="mb-6 sm:mb-8 lg:mb-10 border-b border-slate-200 pb-4">
-        <h2 className="text-slate-950">Playground</h2>
-        <p className="text-slate-500 text-sm sm:text-base mt-2">작게 만들고 확인하며 쌓아온 실험과 학습 기록입니다.</p>
+    <section className="mb-16 sm:mb-20 lg:mb-24">
+      <div className="mb-8 border-b border-token pb-5 sm:mb-10">
+        <h2 className="section-title">Playground</h2>
+        <p className="section-copy mt-3">작게 만들고 확인하며 쌓아온 실험과 학습 기록입니다.</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 sm:gap-6 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0">
         {[...experiments].reverse().map((experiment) => (
           <PlaygroundCard
             key={experiment.id}
             experiment={experiment}
-            onClick={() => setSelectedExperiment(experiment)}
+            onClick={() => openExperiment(experiment)}
           />
         ))}
       </div>
@@ -26,7 +37,7 @@ export function Playground() {
       {selectedExperiment && (
         <ExperimentDetailModal
           experiment={selectedExperiment}
-          onClose={() => setSelectedExperiment(null)}
+          onClose={closeExperiment}
         />
       )}
     </section>

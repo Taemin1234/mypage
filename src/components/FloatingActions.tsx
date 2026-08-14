@@ -1,56 +1,50 @@
-import { useState, useEffect } from "react";
-import { ArrowUp, FileText } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
+import { ArrowUp } from "@phosphor-icons/react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+} from "motion/react";
 
 export function FloatingActions() {
   const [isVisible, setIsVisible] = useState(false);
+  const { scrollY } = useScroll();
+  const reduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const nextVisible = latest > 560;
+    setIsVisible((current) => (current === nextVisible ? current : nextVisible));
+  });
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: reduceMotion ? "auto" : "smooth",
     });
   };
 
   return (
-    <div className="fixed bottom-6 right-6 flex flex-col items-end gap-3 z-50 pointer-events-none">      
-      <a
-        href="https://decisive-steam-5f0.notion.site/2b716d0d863f8056b8b2f7d8881f1591"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="pointer-events-auto flex items-center gap-2 px-4 py-3 bg-slate-900 text-white rounded-lg shadow-md hover:bg-slate-800 transition-colors duration-200 group"
-        aria-label="이력서 보기"
-      >
-        <FileText className="w-5 h-5" />
-        <span className="font-medium text-sm pr-1">이력서</span>
-      </a>
-
-      {/* Scroll to Top Button */}
+    <div className="pointer-events-none fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 sm:bottom-6 sm:right-6">
       <AnimatePresence>
         {isVisible && (
-          <motion.button
-            initial={{ opacity: 0, scale: 1, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 1, y: 20 }}
-            onClick={scrollToTop}
-            className="pointer-events-auto p-3 bg-white text-slate-600 rounded-lg shadow-md border border-slate-200 hover:bg-slate-50 hover:text-slate-900 transition-colors duration-200"
-            aria-label="맨 위로 스크롤"
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduceMotion ? undefined : { opacity: 0, y: 12 }}
+            transition={{ duration: reduceMotion ? 0 : 0.22 }}
+            className="flex flex-col items-end gap-2"
           >
-            <ArrowUp className="w-5 h-5" />
-          </motion.button>
+            <button
+              type="button"
+              onClick={scrollToTop}
+              className="secondary-button control-shape pointer-events-auto grid size-11 place-items-center shadow-lg transition-colors"
+              aria-label="맨 위로 스크롤"
+            >
+              <ArrowUp className="size-5" aria-hidden="true" />
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

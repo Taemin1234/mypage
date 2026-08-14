@@ -4,17 +4,18 @@ import { Projects } from './components/Projects';
 import { CompanyProjects } from './components/CompanyProjects';
 import { Playground } from './components/Playground';
 import { FloatingActions } from './components/FloatingActions';
+import { Reveal } from './components/Reveal';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18">
+    <div className="site-shell min-h-[100dvh]">
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <Hero />
-        <Skills />
-        <Projects />
-        <CompanyProjects />
-        <Playground />
-      </div>
+        <Reveal><Skills /></Reveal>
+        <Reveal><Projects /></Reveal>
+        <Reveal><CompanyProjects /></Reveal>
+        <Reveal><Playground /></Reveal>
+      </main>
       <FloatingActions />
     </div>
   );
