@@ -28,7 +28,7 @@ export function Hero() {
           </p>
 
           <h1 className="text-[clamp(2.35rem,5vw,4rem)] font-[780] leading-[1.3] tracking-[-0.06em] text-primary">
-            화면의 흐름과 구현의 기준을 함께 보는 프론트엔드 개발자, 송태민입니다.
+            화면의 흐름과 구현의 기준을 함께 보는<br/> 프론트엔드 개발자, 송태민입니다.
           </h1>
         </motion.div>
 
@@ -73,7 +73,7 @@ export function Hero() {
           >
             <div className="image-frame content-surface overflow-hidden p-2 sm:p-3">
               <img
-                src="/images/dustpeakclub.JPG"
+                src="/images/dustpeakclub.png"
                 alt="dustpeakclub 음악 큐레이션 프로젝트 화면"
                 className="aspect-[16/8.5] w-full rounded-[0.7rem] object-cover object-top"
                 loading="eager"

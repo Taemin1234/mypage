@@ -237,21 +237,21 @@ export const projects = [
   },
   {
     id: 5,
-    name: 'dustpeakclub(작업중)',
+    name: 'dustpeakclub',
     description: '사용자가 자신의 음악 취향을 플레이리스트와 앨범리스트로 기록하고 공유할 수 있는 음악 큐레이션 커뮤니티 플랫폼',
     tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Prisma 7', 'PostgreSQL', 'Spotify Web API'],
     links: {
       detail: 'https://decisive-steam-5f0.notion.site/34416d0d863f806da29ef26b773f8f10?source=copy_link',
       github: 'https://github.com/Taemin1234/afterplay',
-      live: 'https://dustpeakclub.vercel.app/'
+      live: 'https://www.dustpeakclub.com/'
     },
     color: 'from-emerald-600 to-lime-500',
-    image: '/images/dustpeakclub.JPG',
+    image: '/images/dustpeakclub.png',
     fullDescription: 'dustpeakclub은 사용자가 Spotify 기반 음악 데이터를 검색해 자신만의 플레이리스트와 앨범리스트를 만들고 공유할 수 있는 음악 큐레이션 커뮤니티 플랫폼입니다.\n\n' +
       '사용자는 곡 또는 앨범을 검색해 리스트에 추가하고, 제목·설명·태그·공개 여부를 설정해 자신의 음악 취향을 콘텐츠 형태로 기록할 수 있습니다. 메인 페이지에서는 최신순과 좋아요순 정렬, 리스트 타입 필터, 무한 스크롤을 통해 다양한 음악 리스트를 탐색할 수 있습니다.\n\n' +
       'Supabase OAuth 인증을 기반으로 로그인, 온보딩, 보호 라우트, 사용자 프로필을 구현했으며, Prisma와 PostgreSQL을 활용해 플레이리스트, 앨범리스트, 태그, 좋아요, 북마크, 댓글, 팔로우, 조회수, 검색 별칭 등 커뮤니티 서비스에 필요한 관계형 데이터를 설계했습니다.\n\n' +
       '또한 Spotify Web API 연동, 커서 기반 페이지네이션, 검색 별칭 시스템, 마이페이지, 사용자 대시보드, 반응형 UI를 구현하며 음악 취향 공유 서비스의 전체 흐름을 풀스택으로 개발했습니다.',
-    period: '2026.02 - 진행중',
+    period: '2026.02 - 2026.07',
     team: '개인프로젝트',
     features: [
       'Supabase OAuth 기반 로그인 및 서버/클라이언트 세션 관리',
