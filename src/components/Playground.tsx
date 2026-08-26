@@ -21,7 +21,7 @@ export function Playground() {
     <section className="mb-16 sm:mb-20 lg:mb-24">
       <div className="mb-8 border-b border-token pb-5 sm:mb-10">
         <h2 className="section-title">Playground</h2>
-        <p className="section-copy mt-3">작게 만들고 확인하며 쌓아온 실험과 학습 기록입니다.</p>
+        <p className="section-copy mt-3">소규모 작업을 통해 기술을 익혔습니다.</p>
       </div>
 
       <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 sm:gap-6 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0">

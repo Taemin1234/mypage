@@ -191,7 +191,7 @@ export const projects = [
     id: 4,
     name: 'taest 매거진(AWS만료)',
     description: '에디터들이 직접 글을 발행하고 독자가 카테고리별로 탐색할 수 있는 온라인 매거진 플랫폼',
-    notice : '현재 AWS 서버 운영을 중단하여 백엔드 서버가 비활성화 되어있습니다.',
+    notice : '현재 AWS 서버 운영을 중단해 백엔드 서버가 비활성화되어있습니다.',
     tags: ['React 19', 'Next.js 15', 'Tailwind CSS', 'AWS Elastic Beanstalk', 'node.js + Express', 'MongoDB + Mongoose'],
     links: {
       detail: 'https://decisive-steam-5f0.notion.site/2b716d0d863f812eafb2fa457f71b9f3?source=copy_link',

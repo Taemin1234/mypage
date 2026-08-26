@@ -53,4 +53,21 @@ export const experiments = [
       'JS 런타임 동작과 TS 타입 체크의 역할 차이를 체감하는 연습 프로젝트'
     ],
   },
+  {
+    id: 4,
+    name: '리코셰 로봇',
+    description: 'Canvas로 구현한 리코셰 로봇 게임',
+    tags: ['JavaScript'],
+    links: {
+      github: 'https://github.com/Taemin1234/richoche_robot',
+      live: 'https://taemin1234.github.io/richoche_robot/'
+    },
+    image: '/images/richoche-robot.png',
+    fullDescription: '다른 말과 벽을 이용하여 최소 횟수로 목표 색을 목표지점으로 이동하는 게임. Canvas를 활용해 그래픽 렌더링, 좌표 기반 인터랙션, 충돌 판정 및 requestAnimationFrame 기반 애니메이션 구현을 목표로 했습니다.',
+    learnings: [
+      'canvas에 그래픽 요소를 직접 랜더링',
+      '좌표 기반으로 로봇의 위치와 목표지점 설정',
+      '로봇의 이동과 충돌 판정 로직 설정',
+    ],
+  },
 ];
