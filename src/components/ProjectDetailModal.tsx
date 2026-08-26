@@ -12,6 +12,7 @@ interface ProjectDetailModalProps {
   project: {
     name: string;
     description: string;
+    notice?: string;
     tags: string[];
     links: {
       detail?: string;
@@ -81,9 +82,16 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
               </h2>
             </Dialog.Title>
             <Dialog.Description asChild>
-              <p className="max-w-[65ch] text-sm leading-6 text-secondary sm:text-base sm:leading-7">
-                {project.description}
-              </p>
+              <div>
+                <p className="max-w-[65ch] text-sm leading-6 text-secondary sm:text-base sm:leading-7">
+                  {project.description}
+                </p>
+                {project.notice && (
+                  <p className="mt-2 max-w-[65ch] text-xs leading-5 text-red-400/90 sm:text-sm sm:leading-6">
+                    ※ {project.notice}
+                  </p>
+                )}
+              </div>
             </Dialog.Description>
 
             <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-secondary">
